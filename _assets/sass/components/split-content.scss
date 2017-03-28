@@ -1,0 +1,51 @@
+/* ===========================================================
+
+	# Split content
+
+=========================================================== */
+
+.c-split-content__title {
+    width: 44%;
+}
+
+.c-split-content--first {
+    @include column( 1/2, $gutter: 12);
+}
+
+.c-split-content--last {
+    @include column( 1/2, $gutter: 12);
+}
+
+
+.c-split-content--offer {    
+    .c-split-content--first  {
+        @include column( 8/12, $gutter: 7);
+
+        @include respond-max ($mq-medium) {
+            @include column( 12/12, $gutter: 2);
+            text-align: center;
+        }
+    }
+
+    .c-split-content--last  {
+        @include column( 4/12, $gutter: 7);
+
+        @include respond-max ($mq-medium) {
+            @include column( 12/12, $gutter: 2);
+            text-align: center;
+        }
+
+        .c-button--primary {
+            margin-top: 0;
+        }
+    }
+}
+
+
+// Flexbox!!
+.flexbox {
+    .c-split-content--offer {
+        display: flex;
+        align-items: center
+    }
+}

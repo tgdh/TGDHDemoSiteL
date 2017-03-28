@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'tgdhdemofont';
+  src:  url('#{$icons}/fonts/tgdhdemofont.eot?w4kysg');
+  src:  url('#{$icons}/fonts/tgdhdemofont.eot?w4kysg#iefix') format('embedded-opentype'),
+    url('#{$icons}/fonts/tgdhdemofont.ttf?w4kysg') format('truetype'),
+    url('#{$icons}/fonts/tgdhdemofont.woff?w4kysg') format('woff'),
+    url('#{$icons}/fonts/tgdhdemofont.svg?w4kysg#tgdhdemofont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tgdhdemofont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-flag:before {
+  content: "\e906";
+}
+.ico-dial:before {
+  content: "\e907";
+}
+.ico-cogs:before {
+  content: "\e908";
+}
+.ico-ic-search-24px:before {
+  content: "\e900";
+}
+.ico-ic-arrow-back-24px:before {
+  content: "\e901";
+}
+.ico-ic-arrow-forward-24px:before {
+  content: "\e902";
+}
+.ico-ic-arrow-downward-24px:before {
+  content: "\e903";
+}
+.ico-ic-arrow-upward-24px:before {
+  content: "\e904";
+}
+.ico-ic-menu-24px:before {
+  content: "\e905";
+}
+.ico-phone:before {
+  content: "\e942";
+}
+.ico-facebook:before {
+  content: "\ea90";
+}
+.ico-twitter:before {
+  content: "\ea96";
+}
+.ico-linkedin:before {
+  content: "\eaca";
+}

@@ -1,0 +1,38 @@
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+
+    if (settings == null)
+    {
+        return;
+    }
+
+    var facebook = settings.GetPropertyValue<string>("facebookUrl");
+    var twitter = settings.GetPropertyValue<string>("twitterUrl");
+    var linkedin = settings.GetPropertyValue<string>("linkedinUrl");
+}
+
+<div class="c-footer__col--last">
+    <h3 class="u-beta">Contect with</h2>
+    <nav class="c-nav--footer">
+        <ul class="c-nav__list-social">
+            @if(!string.IsNullOrWhiteSpace(facebook)) {
+            <li class="c-nav__item-social">
+                <a href="@facebook" class="c-nav__link-social"><i class="ico-facebook"></i></a>
+            </li>
+            }
+          @if(!string.IsNullOrWhiteSpace(twitter)) {
+            <li class="c-nav__item-social">
+                <a href="@twitter" class="c-nav__link-social"><i class="ico-twitter"></i></a>
+            </li>
+            }
+            @if(!string.IsNullOrWhiteSpace(linkedin)) {
+            <li class="c-nav__item-social">
+                <a href="@linkedin" class="c-nav__link-social"><i class="ico-linkedin"></i></a>
+            </li>
+            }
+        </ul>
+    </nav>
+</div>

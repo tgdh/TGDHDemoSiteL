@@ -1,0 +1,20 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var coverSubHeadline = Model.GetPropertyValue<string>("coverSubHeadline");
+}
+
+<section class="u-clearfix flexbox">       
+	<div class="c-panel">
+		<div class="c-panel__col u-background-color">
+			<div class="c-panel__col__content">
+				<h1 class="u-tera">@Model.Name</h1>
+				<p class="u-sec-font u-underline">@coverSubHeadline</p> 
+			</div>
+		</div>                
+
+		<div class="c-panel__col">        
+			<div class="c-panel__image-wrap">
+			</div>        
+		</div>  
+	</div>
+</section> 

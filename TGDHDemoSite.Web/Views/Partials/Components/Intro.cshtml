@@ -1,0 +1,55 @@
+@inherits UmbracoViewPage<IntroViewModel>
+
+
+
+@if( Model.IsCentered ) {
+
+    <section class="o-section o-wrap o-wrap--x-large">
+        <div class="o-wrap--medium o-wrap--center u-center-content">
+            @if(!String.IsNullOrWhiteSpace(Model.Headline)) {
+                <h1 class="u-alpha">
+                    @Model.Headline
+                </h1>
+            }
+
+            @if(!String.IsNullOrWhiteSpace(Model.SubTitle)) {
+                <p class="u-underline--center u-sec-font">
+                    @Model.SubTitle 
+                </p>
+            }
+
+            @if(!String.IsNullOrWhiteSpace(Model.Content.ToString())) {
+                <div>
+                    @Model.Content
+                </div>
+            }
+        </div>
+    </section> 
+
+} else {
+
+    <section class="o-section o-wrap o-wrap--x-large">
+        <div class="o-wrap--medium">
+            @if(!String.IsNullOrWhiteSpace(Model.Headline)) {
+                <h1 class="u-alpha">
+                    @Model.Headline
+                </h1>
+            }
+
+            @if(!String.IsNullOrWhiteSpace(Model.SubTitle)) {
+                <p class="u-underline u-sec-font">
+                    @Model.SubTitle 
+                </p>
+            }
+
+            @if(!String.IsNullOrWhiteSpace(Model.Content.ToString())) {
+                <div>
+                    @Model.Content
+                </div>
+            }
+            
+            <a href="#" class="c-button c-button--primary">Lorem ipsum</a>
+        </div>
+    </section> 
+
+}

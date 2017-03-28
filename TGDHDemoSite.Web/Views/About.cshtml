@@ -1,0 +1,30 @@
+﻿@inherits UmbracoViewPage<IPublishedContent>
+@{
+	Layout = "Master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/Page/About/PageTitle.cshtml")
+
+<!-- Content Text -->
+@{
+	var AboutContent = new IntroViewModel {
+		Content = Model.GetPropertyValue<IHtmlString>("aboutText"),
+		IsCentered = false
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Intro.cshtml", AboutContent) 
+
+
+
+<!-- Split Content -->
+@{
+	var SplitContent = new SplitContentViewModel {
+		aboutHeadline = Model.GetPropertyValue<string>("aboutHeadline"),
+		aboutContentLeft = Model.GetPropertyValue<IHtmlString>("aboutContentLeft"),
+		aboutContentRight = Model.GetPropertyValue<IHtmlString>("aboutContentRight")
+	};
+}
+@Html.Partial("~/Views/Partials/Components/SplitContent.cshtml", SplitContent)
+
+
+@Html.Partial("~/Views/Partials/Page/About/OurTeam.cshtml")

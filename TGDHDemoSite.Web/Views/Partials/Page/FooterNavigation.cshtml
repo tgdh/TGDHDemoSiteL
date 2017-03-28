@@ -1,0 +1,20 @@
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+
+@{
+    var homePage = Model.Site();
+    var menuItems = homePage.Children.Where(x => x.IsVisible());
+}
+<div class="c-footer__col">
+    <h3 class="u-beta">Useful links</h2>
+    <nav class="c-nav--footer">
+        <ul class="c-nav__list">
+            @foreach (var item in menuItems)
+                {   
+            <li class="c-nav__item">
+                <a href="@item.Url" class="c-nav__link">@item.Name</a>
+            </li>
+                }
+        </ul>
+    </nav>
+</div> 

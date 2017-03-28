@@ -1,0 +1,42 @@
+@inherits UmbracoViewPage<IPublishedContent>
+
+<!-- Promotion -->
+@{
+	var PromotionModel = new PromotionViewModel {	
+		promotionText = Model.GetPropertyValue<string>("promotionText")
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Promotion.cshtml")
+
+ <footer class="c-footer u-clearfix">
+    <div class="c-footer__inner o-wrap o-wrap--x-large">
+        <div class="c-footer__col--first">
+            <div class="c-footer__col">
+                <h3 class="u-beta">Contacts</h2>
+                <address class="c-footer__address">
+                    Walton Road<br>
+                    Farlington Portsmouth<br>
+                    PO6 1TR
+                </address>
+            </div>
+
+            @Html.Partial("~/Views/Partials/Page/FooterNavigation.cshtml")
+        </div>
+
+            @Html.Partial("~/Views/Partials/Page/SocialLinks.cshtml")
+    </div>
+
+    <div class="c-footer--bottom">
+        <div class="o-wrap o-wrap--x-large u-clearfix">
+            <div class="c-footer--bottom__img-wrap">
+                <img class="c-footer--bottom__img" src="/assets/img//white-logo.png" alt="The Graphic Design House logo" />
+            </div>
+            <div class="c-footer--bottom__copyright">
+                <p>
+                    Copyright &copy; @DateTime.Now.Year Umbraco Demo Site. All rights reserved
+                </p>
+            </div>
+        </div>
+        <a href="#top"><i class="ico-ic-arrow-upward-24px"></i></a>
+    </div>
+</footer>

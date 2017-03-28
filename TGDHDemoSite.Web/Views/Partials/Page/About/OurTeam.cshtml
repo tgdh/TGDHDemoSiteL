@@ -1,0 +1,18 @@
+@inherits UmbracoViewPage<IPublishedContent>
+
+<section class="o-section u-clearfix o-wrap o-wrap--center o-wrap--x-large u-section-padding">
+	<div class="c-column-heading--two u-clearfix">
+		<h2 class="c-column-heading u-alpha">
+			Our team
+		</h2>
+		<span class="c-column-heading--tel u-gamma">
+			<i class="ico-phone">
+			</i>
+			020 256 314
+		</span>                
+	</div>
+
+	<div class="o-grid--three u-clearfix">
+		@Html.Partial("~/Views/Partials/Page/About/StaffMember.cshtml")
+	</div>
+</section>

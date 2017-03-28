@@ -1,0 +1,28 @@
+/* ===========================================================
+
+	# Hamburger
+
+=========================================================== */
+
+.c-header__hamburger {
+    background-color: $pri;
+    color: $sec;
+    float: right;
+    height: 111px;
+    width: 10%;
+    padding-top: 3.5rem;
+    text-align: center;
+
+    @include respond-max ($mq-large) {
+		float: none;
+		margin: 0 auto;
+        background-color: transparent;
+        color: $pri;
+        height: 8rems;
+	}
+
+    i {
+        font-size: 3rem;
+        padding-right: 1rem;
+    }
+} 

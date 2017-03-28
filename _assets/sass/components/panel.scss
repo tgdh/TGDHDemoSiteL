@@ -1,0 +1,76 @@
+/* ===========================================================
+
+	# Panel
+
+=========================================================== */
+
+.c-panel {
+    width: 100%;
+    background-color: $ter;
+    position: relative;
+}
+
+.c-panel__col {
+    float: left;
+    width: 50%;
+    min-height: 560px;
+    position: relative;
+
+    h1 {
+        font-weight: 900;
+    }
+
+    p {
+        color: rgba($pri, 0.65);
+    }
+}
+
+.c-panel__col__content {
+    padding: 4rem;
+    max-width: $wrap-x-large / 2;
+    margin-left: auto;
+}
+
+.c-panel__image-wrap {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-image: url('../img/pet.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    background-color: $pri;
+    width: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: (460/701) * 100%;
+    }
+}
+
+.card__img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// Flexbox!!
+.flexbox {
+    .c-panel {
+        display: flex;
+    }
+
+    .c-panel__col {
+        display: flex;
+    }
+
+    .c-panel__col__content {
+        display: flex;
+        flex: 1 0 auto;
+        justify-content: center;
+        flex-direction: column;   
+        padding: 4rem;
+        width: 50%;
+    }
+}

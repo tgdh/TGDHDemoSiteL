@@ -1,0 +1,54 @@
+﻿@inherits UmbracoViewPage<IPublishedContent>
+	
+@{
+	Layout = "Master.cshtml";
+}
+
+
+<!-- Cover -->
+@{
+	var HeroModel = new HeroViewModel {	
+		Headline = Model.GetPropertyValue<string>("Headline"),	
+		ImageId = 1200,
+		Content = Model.GetPropertyValue<IHtmlString>("heroContent")
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Hero.cshtml", HeroModel)
+
+
+<!-- Content Text -->
+@{
+	var IntroModel = new IntroViewModel {
+		Headline = Model.GetPropertyValue<string>("Headline"),
+		SubTitle = Model.GetPropertyValue<string>("SubTitle"),
+		Content = Model.GetPropertyValue<IHtmlString>("Content"),
+		IsCentered = false
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Intro.cshtml", IntroModel)
+
+
+<!-- Details Cover -->
+@{
+	var HeroModel2 = new HeroViewModel {	
+		Headline = Model.GetPropertyValue<string>("detailsHeadline"),	
+		ImageId = 1201,
+		Content = Model.GetPropertyValue<IHtmlString>("detailsContent")
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Hero.cshtml", HeroModel2)
+
+
+
+<!-- Content Centered Text -->
+@{
+	var IntroModel2 = new IntroViewModel {
+		Headline = Model.GetPropertyValue<string>("contentTitleCenter"),
+		SubTitle = Model.GetPropertyValue<string>("contentSubTitleCenter"),
+		Content = Model.GetPropertyValue<IHtmlString>("ContentCenter"),
+		IsCentered = true
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Intro.cshtml", IntroModel2)
+
+@Html.Partial("~/Views/Partials/Page/Homepage/Pricing.cshtml")
