@@ -1,20 +1,14 @@
-@inherits UmbracoViewPage<IPublishedContent>
+@inherits UmbracoViewPage<PanelViewModel>
 @{
-	var coverSubHeadline = Model.GetPropertyValue<string>("coverSubHeadline");
+	<!--var image = Umbraco.TypedMedia(Model.ImageId);
+    var imageUrl = Url.GetCropUrl(image, cropAlias: "16:9", width: 1800, htmlEncode: false).ToString();-->
+   
 }
 
-<section class="u-clearfix flexbox">       
-	<div class="c-panel">
-		<div class="c-panel__col u-background-color">
-			<div class="c-panel__col__content">
-				<h1 class="u-tera">@Model.Name</h1>
-				<p class="u-sec-font u-underline">@coverSubHeadline</p> 
-			</div>
-		</div>                
+<!-- Content Text -->
+@{
+	var Panel = new PanelViewModel {	
 
-		<div class="c-panel__col">        
-			<div class="c-panel__image-wrap">
-			</div>        
-		</div>  
-	</div>
-</section> 
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Panel.cshtml", Panel) 

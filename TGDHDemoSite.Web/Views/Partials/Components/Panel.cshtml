@@ -1,0 +1,21 @@
+@inherits UmbracoViewPage<PanelViewModel>
+
+@{
+    var image = Umbraco.TypedMedia(Model.ImageId);
+    var imageUrl = Url.GetCropUrl(image, cropAlias: "16:9", width: 900, htmlEncode: false).ToString();
+}
+
+<section class="flexbox c-panel__wrap">
+    <div class="c-panel__featured c-panel">
+        <div class="o-wrap o-wrap--x-large">
+            
+            <div class="c-panel__col c-panel__col__content">
+                <h1 class="u-tera u-underline">@Model.PanelHeadline</h1>
+                <div class="u-sec-font">@Model.PanelContent</div>                 
+            </div>
+            
+            <div class="c-panel__image" style="background-image: url('@imageUrl')"></div>
+
+        </div>
+    </div>
+</section>

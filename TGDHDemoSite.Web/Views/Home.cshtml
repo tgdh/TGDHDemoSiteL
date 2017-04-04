@@ -1,9 +1,7 @@
-﻿@inherits UmbracoViewPage<IPublishedContent>
-	
+﻿@inherits UmbracoViewPage<IPublishedContent>	
 @{
 	Layout = "Master.cshtml";
 }
-
 
 <!-- Cover -->
 @{
@@ -15,18 +13,17 @@
 }
 @Html.Partial("~/Views/Partials/Components/Hero.cshtml", HeroModel)
 
-
 <!-- Content Text -->
 @{
 	var IntroModel = new IntroViewModel {
 		Headline = Model.GetPropertyValue<string>("Headline"),
 		SubTitle = Model.GetPropertyValue<string>("SubTitle"),
 		Content = Model.GetPropertyValue<IHtmlString>("Content"),
+		Cta = Model.GetPropertyValue<string>("ctaText"),
 		IsCentered = false
 	};
 }
 @Html.Partial("~/Views/Partials/Components/Intro.cshtml", IntroModel)
-
 
 <!-- Details Cover -->
 @{
@@ -37,8 +34,6 @@
 	};
 }
 @Html.Partial("~/Views/Partials/Components/Hero.cshtml", HeroModel2)
-
-
 
 <!-- Content Centered Text -->
 @{

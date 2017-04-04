@@ -15,6 +15,8 @@
 
 .c-header__container {
 	background-color: $sec;
+	min-height: 6rem;
+	position: relative;
 }
 
 .c-header__logo-link {
@@ -22,6 +24,7 @@
 	float: left;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+	min-width: 5.5rem;
 	width: 10%;
 	padding-left: 4rem;
 
@@ -29,24 +32,6 @@
 		float: none;
 		margin: 0 auto;
 	}
-}
-
-.c-header__logo-image {
-	width: 9.3rem;
-
-	@include respond-max ($mq-large) {
-		display: none;
-	}
-}
-
-.c-header__hamburger {
-	@include respond-max ($mq-large) {
-		display: none;
-	}
-}
-
-.c-header__toggle-menu-button {
-	display: none;
 }
 
 @include respond-max( $mq-large ) {

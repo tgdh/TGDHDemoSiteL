@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngularGoogleMaps, Version=2.0.2.45, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngularGoogleMaps.2.0.3\lib\net45\AngularGoogleMaps.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
@@ -212,6 +215,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TGDHDemoSite.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TGDHDemoSite.Core\bin\TGDHDemoSite.Core.dll</HintPath>
+    </Reference>
     <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
       <HintPath>..\packages\UmbracoCms.Core.7.5.11\lib\TidyNet.dll</HintPath>
     </Reference>
@@ -247,6 +254,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\agm.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\angular-google-maps.2.1.0.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\angular-google-maps.2.1.0.min.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\angular-google-maps.2.3.3.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\angular-google-maps.2.3.3.min.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\angular-simple-logger.min.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\config.coordinatesbehavour.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\config.defaultlocation.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\config.definition.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\config.format.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\config.icon.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\iconanchorpoint.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\iconsize.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\iconurl.html" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\map-example.png" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\underscore-min.js" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\view.css" />
+    <Content Include="App_Plugins\AngularGoogleMaps\2.0.3\view.html" />
+    <Content Include="App_Plugins\GibeLinkPicker\Dialogs\linkpicker.controller.js" />
+    <Content Include="App_Plugins\GibeLinkPicker\Dialogs\linkpicker.html" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.controller.js" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.css" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.html" />
     <Content Include="packages.config" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
@@ -282,6 +312,18 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="App_Plugins\NestedContent\package.manifest" />
+    <Content Include="App_Plugins\GibeLinkPicker\package.manifest" />
+    <Content Include="Views\Partials\Cards\ArticleCard.cshtml" />
+    <Content Include="Views\Partials\Components\Analytics.cshtml" />
+    <Content Include="Views\Partials\Components\ContactDetails.cshtml" />
+    <Content Include="Views\Partials\Components\DetailsCover.cshtml" />
+    <Content Include="Views\Partials\Components\Favicons.cshtml" />
+    <Content Include="Views\Partials\Components\Fonts.cshtml" />
+    <Content Include="Views\Partials\Components\Hero.cshtml" />
+    <Content Include="Views\Partials\Components\Intro.cshtml" />
+    <Content Include="Views\Partials\Components\Promotion.cshtml" />
+    <Content Include="Views\Partials\Components\SEO.cshtml" />
+    <Content Include="Views\Partials\Components\SplitContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,6 +367,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\ArticleViewModel.cs" />
+    <Content Include="App_Code\DetailCoverViewModel.cs" />
+    <Content Include="App_Code\DownloadsViewModel.cs" />
+    <Content Include="App_Code\EmbedViewModel.cs" />
+    <Content Include="App_Code\FormViewModel.cs" />
+    <Content Include="App_Code\GalleryViewModel.cs" />
+    <Content Include="App_Code\GatewayViewModel.cs" />
+    <Content Include="App_Code\HeroViewModel.cs" />
+    <Content Include="App_Code\ICard.cs" />
+    <Content Include="App_Code\ImageViewModel.cs" />
+    <Content Include="App_Code\IntroViewModel.cs" />
+    <Content Include="App_Code\QuoteViewModel.cs" />
+    <Content Include="App_Code\SplitContentViewModel.cs" />
+    <Content Include="App_Code\testPromotionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

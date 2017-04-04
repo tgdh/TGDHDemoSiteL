@@ -1,0 +1,6 @@
+@inherits UmbracoViewPage<IPublishedContent>	
+@{
+    var childPage = Model.Children.Where("Visible");
+}
+
+

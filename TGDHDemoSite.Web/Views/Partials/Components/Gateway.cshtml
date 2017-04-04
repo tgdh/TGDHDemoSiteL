@@ -1,0 +1,28 @@
+@inherits UmbracoViewPage<GatewayViewModel>
+
+@{
+}
+
+@if( Model.HasImage ) {
+
+    <article class="c-block">
+        <div class="c-block__image-wrap">
+            <img class="c-block__image" src="@Model.Image" alt="" />
+
+            <h1 class="c-block__image--headline u-underline--white">@Model.blockImageTitle</h1>
+        </div>
+    </article>
+
+} else {
+
+    <article class="c-block">
+        <div class="c-block__container">
+            <h1 class="c-block__headline u-underline">Page 2</h1>
+            
+            <p class="c-blick__text">Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p> 
+      
+            <a href="#" class="c-button c-button--primary">Lorem ipsum</a>
+        </div>
+    </article>
+
+}

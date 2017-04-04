@@ -1,6 +1,6 @@
 @inherits UmbracoViewPage<IPublishedContent>
 @{
-    var homePage = Model.Site();
+    var homePage = Model.AncestorsOrSelf().Last();
     var settings = homePage.Descendants("globalSettings").FirstOrDefault();
     var siteName = string.Empty;
 
@@ -12,16 +12,23 @@
 
 <header id="top" class="c-header u-clearfix">
     <div class="c-header__container o-wrap--center o-wrap--x-large u-clearfix">
-        <a class="c-header__logo-link" href="index.html">
+        <a class="c-header__logo-link" href="@homePage.Url">
             <picture>
                 <source type="image/svg" srcset="/assets/img/logo.svg">
                 <img src="/assets/img/logo.png" alt="logo"/>
             </picture>
         </a>
 
-        <div class="c-header__hamburger">
+        <div class="c-header__search">
             <i class="ico-ic-search-24px"></i>
         </div>
+
+        <a href="#">
+            <div class="c-header__hamburger">
+                menu
+                <i class="ico-ic-menu-24px"></i>
+            </div>
+        </a>
 
         @Html.Partial("~/Views/Partials/Page/MainNavigation.cshtml")
     </div>

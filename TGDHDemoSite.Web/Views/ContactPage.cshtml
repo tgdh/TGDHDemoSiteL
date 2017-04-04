@@ -1,7 +1,20 @@
 ﻿@inherits UmbracoViewPage<IPublishedContent>
 @{
-    Layout = "Layout.cshtml";
+    Layout = "Master.cshtml";
 }
 
-@Html.Partial("~/Views/Partials/Page/Headline.cshtml")
-@Html.Partial("~/Views/Partials/Components/ContactDetails.cshtml")
+<!-- Panel section -->
+@{
+    var ContactPanel = new PanelViewModel {
+        PanelHeadline = "Contact us",
+        PanelContent = Html.Raw("<p>Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>"),
+        ImageId = 1243
+    };
+}
+@Html.Partial("~/Views/Partials/Components/Panel.cshtml", ContactPanel) 
+
+<!-- Contact Details -->
+<section class="o-section o-wrap o-wrap--x-large u-clearfix">
+    @Html.Partial("~/Views/Partials/Page/Contact/ContactDetails.cshtml") 
+    @Html.Partial("~/Views/Partials/Page/Contact/ContactForm.cshtml")     
+</section>

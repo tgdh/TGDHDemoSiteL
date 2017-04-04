@@ -49,6 +49,10 @@
     float: left;
     padding-top: 2rem;
 
+    @include respond-max($mq-large){
+        width: 100%;
+    }
+
     span {
         color: rgba($pri, .7);
     }
@@ -60,10 +64,20 @@
     text-align: right;
     padding-top: 2.5rem;
 
+    @include respond-max($mq-large){
+        float: left;
+        text-align: left;
+        padding-top: .5rem;
+    }
+
     .c-card__item__detail--link {
         color: currentColor;
         text-decoration: underline;
         padding-top: 1.3rem;
         display: inline-block;
+
+        @include respond-max($mq-large){
+            padding-top: .5rem;
+        }
     }
 }

@@ -2,7 +2,12 @@
 @inherits UmbracoViewPage<IPublishedContent>
 
 @{
-    
+    var PricingTabs = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("pricingTab");
+
+    if (PricingTabs == null)
+    {
+        return;
+    }
 }
 
 <section class="o-section o-wrap o-wrap--x-large">
@@ -10,53 +15,43 @@
         <h1 class="u-space-bottom">Lorem ipsum dolor sit amet</h1>
 
         <div class="o-section c-pricing u-clearfix"> 
-            <div class="c-pricing__item">
-                <div class="c-pricing__item-heading">
-                    <i class="ico-dial"></i>
-                </div>                      
-                <div class="c-pricing__item-content">
-                    <h2>
-                        Lorem ipsum dolor 
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita
-                    </p>
-                    <a class="c-button c-button--primary" href="#">Lorem ipsum</a>
-                </div>                              
-            </div>
 
-            <div class="c-pricing__item c-pricing__item--pop">
-                <div class="c-pricing__item-heading">
-                    <i class="ico-flag"></i>
-                </div>                                                  
-                <div class="c-pricing__item-content">
-                    <h2>
-                        Consectetur
-                    </h2>
-                    <p>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                    </p>
-                    <a class="u-space-bottom c-button c-button--primary" href="#">Lorem ipsum</a>
-                    <p class="u-sec-font u-grey-font ">
-                        *Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    </p>
-                </div> 
-            </div>
+            @foreach(var price in PricingTabs)
+            {
+                var Headline = price.GetPropertyValue<string>("headline");
+                var Description = price.GetPropertyValue<IHtmlString>("description");
+                var Cta = price.GetPropertyValue<string>("button");
+                var CaveatText = price.GetPropertyValue<string>("caveatText");
 
-            <div class="c-pricing__item">
-                <div class="c-pricing__item-heading">
-                    <i class="ico-cogs"></i>
-                </div>                      
-                <div class="c-pricing__item-content">
-                    <h2>
-                        Dolor sit amet
-                    </h2>
-                    <p>
-                        Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                    </p>
-                    <a class="c-button c-button--primary" href="#">Lorem ipsum</a>
-                </div> 
-            </div>
+                var Image = Umbraco.TypedMedia(price.GetPropertyValue("icon"));
+                var imageUrl = Url.GetCropUrl(Image, cropAlias: "1:1", htmlEncode: false).ToString();
+
+                <article class="c-pricing__item">
+                    <div class="c-pricing__item-heading">
+                        <img class="c-pricing__item-image" src="@imageUrl" alt="icon image" />
+                    </div>                      
+                    <div class="c-pricing__item-content">
+                        @if(!string.IsNullOrWhiteSpace(Headline)){
+                            <h2>
+                                @Headline
+                            </h2>
+                        }
+
+                        @Description                 
+
+                        @if(!string.IsNullOrWhiteSpace(Cta)){
+                            <a href="#" class="c-button c-button--primary">Lorem ipsum</a>
+                        }
+
+                        @if(!string.IsNullOrWhiteSpace(CaveatText)){
+                            <p class="u-sec-font">
+                                @CaveatText
+                            </p>
+                        }
+                    </div>                              
+                </article>  
+            }       
         </div>
     </div>
 </section> 
+

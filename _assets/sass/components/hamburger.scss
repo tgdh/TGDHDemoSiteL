@@ -4,7 +4,7 @@
 
 =========================================================== */
 
-.c-header__hamburger {
+.c-header__search {
     background-color: $pri;
     color: $sec;
     float: right;
@@ -14,15 +14,38 @@
     text-align: center;
 
     @include respond-max ($mq-large) {
-		float: none;
-		margin: 0 auto;
-        background-color: transparent;
-        color: $pri;
-        height: 8rems;
+		display: none;
 	}
 
     i {
         font-size: 3rem;
         padding-right: 1rem;
     }
+} 
+
+.c-header__hamburger {
+    background-color: $pri;
+    color: $sec;
+    text-align: center;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 3.5% 2rem;
+
+    i {
+        font-size: 5rem;
+        float: right;
+        padding: 0 1rem;
+        margin-top: -1.4rem;
+        transition: transform ease-in-out .5s;
+
+        &:hover, &:focus {
+            transform: scale(1.2);
+        }
+    }
+
+    @include respond-min ($mq-large) {
+		display: none;
+	}
 } 

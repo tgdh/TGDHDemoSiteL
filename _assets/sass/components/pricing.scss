@@ -8,7 +8,12 @@
     padding: 0 3rem 3rem 3rem;
 
     @include respond-max ($mq-medium) {
-        
+        @include column( 1/1, $gutter: 5 );
+        margin-bottom: 10rem;
+
+        &:nth-of-type(3n) {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -23,10 +28,13 @@
     width: 15rem;
     border-radius: 15rem;
     margin: -7.5rem auto 2rem auto;    
+    position: relative;
 
-    i {
-        color: $sec;
-        font-size: 5rem;
-        line-height: 15rem; 
+    img {
+        width: 7rem;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }
+

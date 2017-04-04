@@ -1,4 +1,12 @@
 @inherits UmbracoViewPage<IPublishedContent>
+@{
+	var staffMembers = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("staffItem");
+
+	if(staffMembers == null) {
+		return;
+	}	
+
+}
 
 <section class="o-section u-clearfix o-wrap o-wrap--center o-wrap--x-large u-section-padding">
 	<div class="c-column-heading--two u-clearfix">
@@ -8,11 +16,45 @@
 		<span class="c-column-heading--tel u-gamma">
 			<i class="ico-phone">
 			</i>
-			020 256 314
+			020 256 314 
 		</span>                
 	</div>
 
 	<div class="o-grid--three u-clearfix">
-		@Html.Partial("~/Views/Partials/Page/About/StaffMember.cshtml")
+		@foreach(var item in staffMembers){
+			var Image = Umbraco.TypedMedia(item.GetPropertyValue("image"));
+			var imageUrl = Url.GetCropUrl(Image, cropAlias: "staffMember", htmlEncode: false).ToString();
+			var Name = item.GetPropertyValue<string>("name");
+			var JobTitle = item.GetPropertyValue<string>("jobTitle");
+			var EmailAddress = item.GetPropertyValue<string>("emailAddress");
+			var Ext = item.GetPropertyValue<string>("telephoneExt");
+			var altNullChecked = !string.IsNullOrWhiteSpace(Name) ? Name : "staff image";
+			
+			if(Image == null){
+				return;
+			}
+
+			<article class="c-card o-grid__item"> 
+				<img class="c-card__item__image" src="@imageUrl" alt="@altNullChecked" />                
+				<div class="c-card__item__title">
+					@if(!string.IsNullOrWhiteSpace(Name)){
+						<h2 class="u-gamma">@Name</h2>
+					}
+
+					@if(!string.IsNullOrWhiteSpace(JobTitle)){
+						<span>@JobTitle</span>
+					}
+				</div>
+				<div class="c-card__item__detail">
+					@if(!string.IsNullOrWhiteSpace(Ext)){
+						<p>@Ext</p>
+					}
+
+					@if(!string.IsNullOrWhiteSpace(EmailAddress)){
+						<a class="c-card__item__detail--link" href="mailto:@EmailAddress">Email</a>
+					}
+				</div>       
+			</article>
+		}
 	</div>
 </section>

@@ -5,72 +5,149 @@
 =========================================================== */
 
 .c-panel {
-    width: 100%;
-    background-color: $ter;
+    .c-panel__image {
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.c-panel__featured {
     position: relative;
+    background-color: $grey;
+     
+     @include respond-max($mq-medium) {
+        background-color: rgba($pri, .3);
+     }
+
+    .c-panel__col__content {
+        width: 50%;
+        padding: 15rem 5rem 15rem 0;
+
+        @include respond-max($mq-medium) {
+            width: 100%;
+            color: $sec;
+
+            h1 {
+                color: $sec;
+            }
+
+            .u-underline:after {
+                background-color: $sec;
+            }
+
+            .c-button {
+                border-color: $sec;
+                color: $sec;
+            }
+        }
+    }
+
+    &:nth-child(1) {
+        .c-panel__image {
+            right: 0;
+        }
+    }
+
+    &:nth-child(2) {
+
+        .c-panel__image{ 
+            left: 0;
+        }
+
+        .c-panel__col__content {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 5rem;
+
+            @include respond-max($mq-medium) {
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
+    }
+
+    .c-panel__image {
+        width: 50%;
+
+        @include respond-max($mq-medium) {
+            width: 100%;
+            z-index: -1;
+        }
+    }
 }
 
-.c-panel__col {
-    float: left;
-    width: 50%;
-    min-height: 560px;
+.c-panel__non-featured {
     position: relative;
+    background-color: $grey;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 10rem 4rem;
+    @include column(1/2, $cycle: 2);
 
-    h1 {
-        font-weight: 900;
+
+    @include respond-max($mq-medium) {
+        @include column(1/1, $cycle: 1);
     }
 
-    p {
-        color: rgba($pri, 0.65);
-    }
-}
+    &:nth-child(1) {
+        h1 {
+            color: $sec;
+        }
 
-.c-panel__col__content {
-    padding: 4rem;
-    max-width: $wrap-x-large / 2;
-    margin-left: auto;
-}
+        a {
+            opacity :0;
+        }
 
-.c-panel__image-wrap {
-    position: absolute;
-    right: 0;
-    height: 100%;
-    background-image: url('../img/pet.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
-    background-color: $pri;
-    width: 100%;
+        p {
+            color: $sec;
+        }
 
-    &:before {
-        content: "";
-        display: block;
-        padding-top: (460/701) * 100%;
-    }
-}
-
-.card__img{
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-// Flexbox!!
-.flexbox {
-    .c-panel {
-        display: flex;
+        .u-underline:after {
+            background-color: $sec;
+        }
     }
 
-    .c-panel__col {
-        display: flex;
+    &:nth-child(4) {
+        h1 {
+            color: $sec;
+        }
+
+        a {
+            opacity :0;
+        }
+
+        p {
+            color: $sec;
+        }
+
+        .u-underline:after {
+            background-color: $sec;
+        }
+    }
+
+    .c-panel__image {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
     }
 
     .c-panel__col__content {
+        * {
+            position: relative;
+            z-index: 50;
+        }
+    }
+
+}
+
+.flexbox {
+    .c-panel__flexbox {
         display: flex;
-        flex: 1 0 auto;
-        justify-content: center;
-        flex-direction: column;   
-        padding: 4rem;
-        width: 50%;
+        flex-wrap: wrap;
     }
 }

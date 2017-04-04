@@ -3,18 +3,25 @@
 	Layout = "Master.cshtml";
 }
 
-@Html.Partial("~/Views/Partials/Page/About/PageTitle.cshtml")
+<!-- Panel header Text -->
+@{
+	var AboutPanel = new PanelViewModel {	
+		PanelHeadline = Model.GetPropertyValue<string>("aboutPanelHeadline"),
+		PanelContent = Model.GetPropertyValue<IHtmlString>("aboutPanelContent"),
+		ImageId = 1243
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Panel.cshtml", AboutPanel) 
 
 <!-- Content Text -->
 @{
 	var AboutContent = new IntroViewModel {
 		Content = Model.GetPropertyValue<IHtmlString>("aboutText"),
-		IsCentered = false
+		IsCentered = false,
+		Cta = Model.GetPropertyValue<string>("pageLink")		
 	};
 }
 @Html.Partial("~/Views/Partials/Components/Intro.cshtml", AboutContent) 
-
-
 
 <!-- Split Content -->
 @{
@@ -26,5 +33,5 @@
 }
 @Html.Partial("~/Views/Partials/Components/SplitContent.cshtml", SplitContent)
 
-
+<!-- Our Team -->
 @Html.Partial("~/Views/Partials/Page/About/OurTeam.cshtml")

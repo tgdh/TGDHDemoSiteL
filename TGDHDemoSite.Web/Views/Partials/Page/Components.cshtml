@@ -27,7 +27,7 @@
 
         switch (item.DocumentTypeAlias)
         {
-            case "imageGallery":
+            case "gallery":
                 var gallery = new GalleryViewModel
                 {
                     MediaIds = item.GetPropertyValue<string>("galleryIds"),
@@ -126,6 +126,7 @@
 
                 @Html.Partial("~/Views/Partials/PageComponents/Form.cshtml", form)
                 break;
+           
             default:
                 @NoResult(item)
                 break;

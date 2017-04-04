@@ -1,0 +1,96 @@
+@inherits UmbracoViewPage<IPublishedContent>
+
+ @{
+    var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+
+    if (settings == null)
+    {
+        return;
+    }
+
+    var facebook = settings.GetPropertyValue<string>("facebookUrl");
+    var twitter = settings.GetPropertyValue<string>("twitterUrl");
+    var linkedin = settings.GetPropertyValue<string>("linkedinUrl");
+
+    var AddressTitle = Model.GetPropertyValue<string>("addressHeadline");
+    var AddressLineOne = Model.GetPropertyValue<string>("addressLine1");
+    var AddressLineTwo = Model.GetPropertyValue<string>("addressLine2");
+    var AddressLineThree = Model.GetPropertyValue<string>("addressLine3");
+    var AddressLineFour = Model.GetPropertyValue<string>("addressLine4");
+    var AddressLineFive = Model.GetPropertyValue<string>("addressLine5");
+
+    var TelephoneNumber = Model.GetPropertyValue<string>("telephoneNumberMain");
+    var TelephoneNumberSec = Model.GetPropertyValue<string>("telephoneNumberSecondary");
+    var TelephoneTitle = Model.GetPropertyValue<string>("telephoneHeadline");
+
+    var EmailAddress = Model.GetPropertyValue<string>("emailAddress");
+    var EmailTitle = Model.GetPropertyValue<string>("emailAddressHeadline");
+}    
+
+<section class="c-contact c-contact__details u-space-bottom">
+    <h3 class="u-alpha u-underline">Contacts</h3>
+
+    @if(!string.IsNullOrWhiteSpace(AddressTitle)){
+        <h4 class="u-beta u-space-top">@AddressTitle</h4>
+    }
+    <address>
+        <ul class="c-contact__address">
+            @if(!string.IsNullOrWhiteSpace(AddressLineOne)){
+                <li>@AddressLineOne</li>
+            }
+            @if(!string.IsNullOrWhiteSpace(AddressLineOne)){
+                <li>@AddressLineTwo</li>
+            }
+            @if(!string.IsNullOrWhiteSpace(AddressLineThree)){
+                <li>@AddressLineThree</li>
+            }
+            @if(!string.IsNullOrWhiteSpace(AddressLineFour)){
+                <li>@AddressLineFour</li>
+            }
+            @if(!string.IsNullOrWhiteSpace(AddressLineFive)){
+                <li>@AddressLineFive</li>
+            }
+        </ul>
+    </address>
+
+    @if(!string.IsNullOrWhiteSpace(TelephoneTitle)){
+        <h4 class="u-beta u-space-top">@TelephoneTitle</h4>
+    }
+    @if(!string.IsNullOrWhiteSpace(TelephoneNumber)){
+        <a href="tel:020456314" class="c-contact__tel">@TelephoneNumber</a><br/>
+    }
+    @if(!string.IsNullOrWhiteSpace(TelephoneNumberSec)){
+        <a href="tel:020456314" class="c-contact__tel">@TelephoneNumberSec</a>
+    }
+
+    @if(!string.IsNullOrWhiteSpace(EmailTitle)){
+        <h4 class="u-beta u-space-top">@EmailTitle</h4>
+    }
+    @if(!string.IsNullOrWhiteSpace(EmailAddress)){
+        <strong><a href="mailto:@EmailAddress" class="c-contact__email">@EmailAddress</a></strong>
+    }
+
+   
+
+    <h4 class="u-beta u-space-top">Follow us on:</h4>
+    <nav class="c-contact__social">
+        <ul class="c-contact__social--list">
+            @if(!string.IsNullOrWhiteSpace(facebook)) {
+                <li class="c-contact__social--item">
+                    <a href="@facebook" class="c-contact__social--link"><i class="ico-facebook"></i></a>
+                </li>
+            }
+            @if(!string.IsNullOrWhiteSpace(twitter)) {
+                <li class="c-contact__social--item">
+                    <a href="@twitter" class="c-contact__social--link"><i class="ico-twitter"></i></a>
+                </li>
+            }
+            @if(!string.IsNullOrWhiteSpace(linkedin)) {
+                <li class="c-contact__social--item">
+                    <a href="@linkedin" class="c-contact__social--link"><i class="ico-linkedin"></i></a>
+                </li>
+            }
+        </ul>
+    </nav>
+</section>
