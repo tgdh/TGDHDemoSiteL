@@ -40,6 +40,10 @@
 //		'objects/logos',
 		'objects/media';
 
+//plugins
+@import 'lib/slick';
+@import 'lib/magnific-popup';
+
 @import 'components/header',
 		'components/nav',
 		'components/buttons',
@@ -54,8 +58,8 @@
 		'components/hero',
 		'components/pricing',
 		'components/contact',
-		'components/c-block',
-//		'components/carousel',
+		'components/block',
+		'components/carousel',
 //		'components/breadcrumb',
 //		'components/map',
 //		'components/social',

@@ -76,6 +76,10 @@
         padding-top: 1.3rem;
         display: inline-block;
 
+        &:hover, &:focus {
+            color: $pri;
+        }
+
         @include respond-max($mq-large){
             padding-top: .5rem;
         }

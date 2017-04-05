@@ -52,7 +52,10 @@
 		enhanceEdgeCaseBrowsers();
 		$('.js-tabs').tabs();
 
+		$window.Carousel.init($('.js-carousel'));
+
 		//MQ.init(breakpoints);
 	}
+
 
 })(jQuery);

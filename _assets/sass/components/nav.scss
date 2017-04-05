@@ -7,7 +7,7 @@
 .c-nav--main {
 	float: right;
 	text-align: center;
-	margin-top: 4rem;	
+	margin-top: 3rem;	
 	width: 80%;
 
 	@include respond-max ($mq-large) {
@@ -20,16 +20,11 @@
 	
 	.c-nav__item {
 		margin: 0;
-		padding: 2rem;
-
-		a {
-			padding: 0;
-		}
 	}
 
 	.c-nav__link {
-		color: $text-colour;
-		padding: 1rem;
+		color: $text-colour;		
+		padding: 0 2rem;
 		display: block;
 		transition: color $speed $ease,
 					background $speed $ease;

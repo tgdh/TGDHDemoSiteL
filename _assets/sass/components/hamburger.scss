@@ -38,11 +38,6 @@
         float: right;
         padding: 0 1rem;
         margin-top: -1.4rem;
-        transition: transform ease-in-out .5s;
-
-        &:hover, &:focus {
-            transform: scale(1.2);
-        }
     }
 
     @include respond-min ($mq-large) {
