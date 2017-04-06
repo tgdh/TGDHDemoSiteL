@@ -19,78 +19,84 @@
     var AddressLineThree = Model.GetPropertyValue<string>("addressLine3");
     var AddressLineFour = Model.GetPropertyValue<string>("addressLine4");
     var AddressLineFive = Model.GetPropertyValue<string>("addressLine5");
+    var hasAddressTitle = !string.IsNullOrWhiteSpace(AddressTitle);
+    var hasAddressLineOne = !string.IsNullOrWhiteSpace(AddressLineOne);
+    var hasAddressLineTwo = !string.IsNullOrWhiteSpace(AddressLineTwo);
+    var hasAddressLineThree = !string.IsNullOrWhiteSpace(AddressLineThree);
+    var hasAddressLineFour = !string.IsNullOrWhiteSpace(AddressLineFour);
+    var hasAddressLineFive = !string.IsNullOrWhiteSpace(AddressLineFive);
+    var hasAddressContent = hasAddressTitle || hasAddressLineOne || hasAddressLineTwo || hasAddressLineThree || hasAddressLineFour || hasAddressLineFive ? true : false;
 
     var TelephoneNumber = Model.GetPropertyValue<string>("telephoneNumberMain");
     var TelephoneNumberSec = Model.GetPropertyValue<string>("telephoneNumberSecondary");
     var TelephoneTitle = Model.GetPropertyValue<string>("telephoneHeadline");
+    var hasTelephoneTitle = !string.IsNullOrWhiteSpace(TelephoneTitle);
+    var hasTelephoneNumber = !string.IsNullOrWhiteSpace(TelephoneNumber);
+    var hasTelephoneNumberSec = !string.IsNullOrWhiteSpace(TelephoneNumberSec);
+    var hasTelephoneContent = hasTelephoneNumber || hasTelephoneNumberSec ? true : false;
 
     var EmailAddress = Model.GetPropertyValue<string>("emailAddress");
     var EmailTitle = Model.GetPropertyValue<string>("emailAddressHeadline");
+    var hasEmailTitle = !string.IsNullOrWhiteSpace(EmailTitle);
+    var hasEmailAddress = !string.IsNullOrWhiteSpace(EmailAddress);
+    var hasEmailContent = hasEmailTitle || hasEmailAddress ? true : false;
 }    
 
 <section class="c-contact c-contact__details u-space-bottom">
     <h3 class="u-alpha u-underline">Contacts</h3>
 
-    @if(!string.IsNullOrWhiteSpace(AddressTitle)){
-        <h4 class="u-beta u-space-top">@AddressTitle</h4>
-    }
-    <address>
-        <ul class="c-contact__address">
-            @if(!string.IsNullOrWhiteSpace(AddressLineOne)){
-                <li>@AddressLineOne</li>
+    @if(hasAddressContent){
+        <div>
+            @if(hasAddressTitle){
+                <h4 class="u-beta u-space-top">@AddressTitle</h4>
             }
-            @if(!string.IsNullOrWhiteSpace(AddressLineOne)){
-                <li>@AddressLineTwo</li>
-            }
-            @if(!string.IsNullOrWhiteSpace(AddressLineThree)){
-                <li>@AddressLineThree</li>
-            }
-            @if(!string.IsNullOrWhiteSpace(AddressLineFour)){
-                <li>@AddressLineFour</li>
-            }
-            @if(!string.IsNullOrWhiteSpace(AddressLineFive)){
-                <li>@AddressLineFive</li>
-            }
-        </ul>
-    </address>
-
-    @if(!string.IsNullOrWhiteSpace(TelephoneTitle)){
-        <h4 class="u-beta u-space-top">@TelephoneTitle</h4>
-    }
-    @if(!string.IsNullOrWhiteSpace(TelephoneNumber)){
-        <a href="tel:020456314" class="c-contact__tel">@TelephoneNumber</a><br/>
-    }
-    @if(!string.IsNullOrWhiteSpace(TelephoneNumberSec)){
-        <a href="tel:020456314" class="c-contact__tel">@TelephoneNumberSec</a>
+        </div>
+        <address>
+            <ul class="c-contact__address">
+                @if(hasAddressLineOne){
+                    <li>@AddressLineOne</li>
+                }
+                @if(hasAddressLineTwo){
+                    <li>@AddressLineTwo</li>
+                }
+                @if(hasAddressLineThree){
+                    <li>@AddressLineThree</li>
+                }
+                @if(hasAddressLineFour){
+                    <li>@AddressLineFour</li>
+                }
+                @if(hasAddressLineFive){
+                    <li>@AddressLineFive</li>
+                }
+            </ul>
+        </address>
     }
 
-    @if(!string.IsNullOrWhiteSpace(EmailTitle)){
-        <h4 class="u-beta u-space-top">@EmailTitle</h4>
+    @if(hasTelephoneContent){
+        <div>
+            @if(hasTelephoneTitle){
+                <h4 class="u-beta u-space-top">@TelephoneTitle</h4>
+            }
+            @if(hasTelephoneNumber){
+                <a href="tel:020456314" class="c-contact__tel">@TelephoneNumber</a><br/>
+            }
+            @if(hasTelephoneNumberSec){
+                <a href="tel:020456314" class="c-contact__tel">@TelephoneNumberSec</a>
+            }
+        </div>
     }
-    @if(!string.IsNullOrWhiteSpace(EmailAddress)){
-        <strong><a href="mailto:@EmailAddress" class="c-contact__email">@EmailAddress</a></strong>
-    }
+    @if(hasEmailContent){
+        <div>
+            @if(hasEmailTitle){
+                <h4 class="u-beta u-space-top">@EmailTitle</h4>
+            }
+            @if(hasEmailAddress){
+                <strong><a href="mailto:@EmailAddress" class="c-contact__email">@EmailAddress</a></strong>
+            }
+        </div>
+    }       
 
-   
-
-    <h4 class="u-beta u-space-top">Follow us on:</h4>
-    <nav class="c-contact__social">
-        <ul class="c-contact__social--list">
-            @if(!string.IsNullOrWhiteSpace(facebook)) {
-                <li class="c-contact__social--item">
-                    <a href="@facebook" class="c-contact__social--link"><i class="ico-facebook"></i></a>
-                </li>
-            }
-            @if(!string.IsNullOrWhiteSpace(twitter)) {
-                <li class="c-contact__social--item">
-                    <a href="@twitter" class="c-contact__social--link"><i class="ico-twitter"></i></a>
-                </li>
-            }
-            @if(!string.IsNullOrWhiteSpace(linkedin)) {
-                <li class="c-contact__social--item">
-                    <a href="@linkedin" class="c-contact__social--link"><i class="ico-linkedin"></i></a>
-                </li>
-            }
-        </ul>
-    </nav>
+    <div class="u-space-top c-contact__social">
+        @Html.Partial("~/Views/Partials/Page/SocialLinks.cshtml")
+    </div>
 </section>

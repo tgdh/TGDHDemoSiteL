@@ -29,6 +29,11 @@
 			var EmailAddress = item.GetPropertyValue<string>("emailAddress");
 			var Ext = item.GetPropertyValue<string>("telephoneExt");
 			var altNullChecked = !string.IsNullOrWhiteSpace(Name) ? Name : "staff image";
+
+			var hasName = !String.IsNullOrWhiteSpace(Name);
+			var hasJobTitle = !String.IsNullOrWhiteSpace(JobTitle);
+			var hasExt = !String.IsNullOrWhiteSpace(Ext);
+			var hasEmailAddress = !String.IsNullOrWhiteSpace(EmailAddress);
 			
 			if(Image == null){
 				return;
@@ -39,20 +44,20 @@
 					<img class="c-card__item__image" src="@imageUrl" alt="@altNullChecked" />                
 				</div>
 				<div class="c-card__item__title">
-					@if(!string.IsNullOrWhiteSpace(Name)){
+					@if(hasName){
 						<h2 class="u-gamma">@Name</h2>
 					}
 
-					@if(!string.IsNullOrWhiteSpace(JobTitle)){
+					@if(hasJobTitle){
 						<span>@JobTitle</span>
 					}
 				</div>
 				<div class="c-card__item__detail">
-					@if(!string.IsNullOrWhiteSpace(Ext)){
+					@if(hasExt){
 						<p>@Ext</p>
 					}
 
-					@if(!string.IsNullOrWhiteSpace(EmailAddress)){
+					@if(hasEmailAddress){
 						<a class="c-card__item__detail--link" href="mailto:@EmailAddress">Email</a>
 					}
 				</div>       

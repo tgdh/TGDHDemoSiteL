@@ -1,24 +1,33 @@
 @inherits UmbracoViewPage<SplitContentViewModel>
 
-<section class="o-section c-split-content u-clearfix u-background-color">                
-	<div class="o-wrap o-wrap--x-large">
-        @if(!String.IsNullOrWhiteSpace(Model.aboutHeadline)) {
-            <h1 class="c-split-content__title u-underline u-alpha">
-                    @Model.aboutHeadline            
-            </h1>      
-        }
-		<div class="u-clearfix">
-			<div class="c-split-content--first">
-                @if(!String.IsNullOrWhiteSpace(Model.aboutContentLeft.ToString())) {
-				    @Model.aboutContentLeft
-                }
-			</div>
+@{
+	var hasHeadline = !String.IsNullOrWhiteSpace(Model.aboutHeadline);
+	var hasContentLeft = !String.IsNullOrWhiteSpace(Model.aboutContentLeft.ToString());
+	var hasContentRight = !String.IsNullOrWhiteSpace(Model.aboutContentRight.ToString());
+	var hasContent = hasHeadline || hasContentLeft || hasContentRight ? true : false;
+}
 
-			<div class="c-split-content--last">        
-				@if(!String.IsNullOrWhiteSpace(Model.aboutContentRight.ToString())) {
-				    @Model.aboutContentRight
-                }
+@if( hasContent ) {
+	<section class="o-section c-split-content u-clearfix u-background-color">                
+		<div class="o-wrap o-wrap--x-large">
+			@if(hasHeadline) {
+				<h1 class="c-split-content__title u-underline u-alpha">
+						@Model.aboutHeadline            
+				</h1>      
+			}
+			<div class="u-clearfix">
+				<div class="c-split-content--first">
+					@if(hasContentLeft) {
+						@Model.aboutContentLeft
+					}
+				</div>
+
+				<div class="c-split-content--last">        
+					@if(hasContentRight) {
+						@Model.aboutContentRight
+					}
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+}

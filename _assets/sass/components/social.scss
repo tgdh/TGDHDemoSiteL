@@ -6,7 +6,7 @@
 
 .c-social__link {
 	color: $white;
-	font-size: 1.6rem;
+	font-size: 2.25rem;
 	display: inline-block;
 	background-color: $pri;
 	padding: .7rem 1rem;
@@ -21,12 +21,13 @@
 	&:hover,
 	&:focus {
 		color: $dark-1;
-		background-color: $light-1;
+		background-color: transparent;
 	}
 
 }
 .c-social__link--facebook {
-	background-color: $facebook;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -35,7 +36,8 @@
 }
 
 .c-social__link--twitter {
-	background-color: $twitter;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -44,7 +46,8 @@
 }
 
 .c-social__link--google {
-	background-color: $google;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -53,7 +56,8 @@
 }
 
 .c-social__link--instagram {
-	background-color: $instagram;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -62,7 +66,8 @@
 }
 
 .c-social__link--linkedin {
-	background-color: $linkedin;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -71,7 +76,8 @@
 }
 
 .c-social__link--pinterest {
-	background-color: $pinterest;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -80,7 +86,8 @@
 }
 
 .c-social__link--youtube {
-	background-color: $youtube;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -89,7 +96,8 @@
 }
 
 .c-social__link--vimeo {
-	background-color: $vimeo;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -98,7 +106,8 @@
 }
 
 .c-social__link--flcikr {
-	background-color: $flcikr;
+	background-color: transparent;
+	color: $white;
 
 	&:hover,
 	&:focus {
@@ -125,3 +134,95 @@
 
 }
 
+.c-contact__social {
+
+	.c-social__link--facebook {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $facebook;
+		}
+	}
+
+	.c-social__link--twitter {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $twitter;
+		}
+	}
+
+	.c-social__link--google {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $google;
+		}
+	}
+
+	.c-social__link--instagram {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $instagram;
+		}
+	}
+
+	.c-social__link--linkedin {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $linkedin;
+		}
+	}
+
+	.c-social__link--pinterest {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $pinterest;
+		}
+	}
+
+	.c-social__link--youtube {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $youtube;
+		}
+	}
+
+	.c-social__link--vimeo {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $vimeo;
+		}
+	}
+
+	.c-social__link--flcikr {
+		background-color: transparent;
+		color: $black;
+
+		&:hover,
+		&:focus {
+			color: $flcikr;
+		}
+}
+}

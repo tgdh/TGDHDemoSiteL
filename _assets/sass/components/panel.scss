@@ -17,18 +17,6 @@
 .c-panel__featured {
     position: relative;
     background-color: $grey;
-
-    &:hover {
-
-        .c-panel__description {
-            color: $pri;
-        }
-
-        .c-button {
-            background-color: $pri;
-            color: $sec;
-        }
-    }
      
      @include respond-max($mq-medium) {
         background-color: rgba($pri, .3);
@@ -42,7 +30,7 @@
             width: 100%;
             color: $sec;
 
-            .c-panel__headline {
+            .c-panel__headline, .c-panel__description {
                 color: $sec;
             }
 
@@ -53,6 +41,27 @@
             .c-button {
                 border-color: $sec;
                 color: $sec;
+            }
+        }
+    }
+
+    &:hover {
+
+        .c-panel__description {
+            color: $pri;
+
+            @include respond-max($mq-medium) {
+                color: $sec;
+            }
+        }
+
+        .c-button {
+            background-color: $pri;
+            color: $sec;
+
+            @include respond-max($mq-medium) {
+                background-color: $sec;
+                color: $pri;
             }
         }
     }

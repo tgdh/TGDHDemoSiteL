@@ -7,8 +7,9 @@
     if (PricingTabs == null)
     {
         return;
-    }
+    } 
 }
+
 
 <section class="o-section o-wrap o-wrap--x-large">
     <div class="o-wrap--medium o-wrap--center u-center-content">
@@ -23,27 +24,38 @@
                 var Cta = price.GetPropertyValue<string>("button");
                 var CaveatText = price.GetPropertyValue<string>("caveatText");
 
+                var hasHeadline = !string.IsNullOrWhiteSpace(Headline);
+                var hasCta = !string.IsNullOrWhiteSpace(Cta);
+                var hasCaveat = !string.IsNullOrWhiteSpace(CaveatText);
+                var hasDescription = !String.IsNullOrWhiteSpace(Description.ToString());
+                var hasPricingContent = hasHeadline || hasCta || hasCaveat || hasDescription ? true : false; 
+
                 var Image = Umbraco.TypedMedia(price.GetPropertyValue("icon"));
                 var imageUrl = Url.GetCropUrl(Image, cropAlias: "1:1", htmlEncode: false).ToString();
+
 
                 <article class="c-pricing__item">
                     <div class="c-pricing__item-heading">
                         <img class="c-pricing__item-image" src="@imageUrl" alt="icon image" />
                     </div>                      
                     <div class="c-pricing__item-content">
-                        @if(!string.IsNullOrWhiteSpace(Headline)){
+                        @if(hasHeadline){
                             <h2>
                                 @Headline
                             </h2>
                         }
 
-                        @Description                 
+                        @if(hasDescription){
+                            <div>
+                                @Description                 
+                            </div>
+                        }
 
-                        @if(!string.IsNullOrWhiteSpace(Cta)){
+                        @if(hasCta){
                             <a href="#" class="c-button c-button--primary">Lorem ipsum</a>
                         }
 
-                        @if(!string.IsNullOrWhiteSpace(CaveatText)){
+                        @if(hasCaveat){
                             <p class="u-sec-font">
                                 @CaveatText
                             </p>
@@ -54,4 +66,3 @@
         </div>
     </div>
 </section> 
-

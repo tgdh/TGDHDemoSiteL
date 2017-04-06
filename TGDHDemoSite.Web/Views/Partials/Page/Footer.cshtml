@@ -1,11 +1,6 @@
 @inherits UmbracoViewPage<IPublishedContent>
 
 <!-- Promotion -->
-@{
-	var PromotionModel = new PromotionViewModel {	
-		promotionText = Model.GetPropertyValue<string>("promotionText")
-	};
-}
 @Html.Partial("~/Views/Partials/Components/Promotion.cshtml")
 
  <footer class="c-footer u-clearfix">

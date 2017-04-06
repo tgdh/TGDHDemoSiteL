@@ -2,7 +2,7 @@
 
 @{
     var homePage = Model.Site();
-    var menuItems = homePage.Children.Where(x => x.IsVisible());
+    var menuItems = homePage.Children.Where(x => x.IsVisible() && x.TemplateId > 0);
 }
 
 <nav class="c-header__c-nav c-nav--main">

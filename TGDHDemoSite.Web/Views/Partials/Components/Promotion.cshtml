@@ -1,21 +1,22 @@
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@inherits UmbracoViewPage<IPublishedContent>
 
-    @{
-       String promoTest = Model.Content.GetPropertyValue<string>("promotionText");
-    }
+@{
+    var promoText = Model.GetPropertyValue<string>("promotionText");
+    var hasText = !String.IsNullOrWhiteSpace(promoText);
+    var hasPromocontent = hasText ? true : false;
+}
 
-<section class="o-section u-clearfix u-background-color flexbox">
-    <div class="o-wrap o-wrap--x-large u-clearfix c-split-content--offer">
-
-        <div class="c-split-content--first">
-            @if(!String.IsNullOrWhiteSpace(promoTest)) {
-                <h2 class="u-beta u-sec-font">@promoTest</h2>
-            }
+@if(hasPromocontent) {
+    <section class="o-section u-clearfix u-background-color flexbox">
+        <div class="o-wrap o-wrap--x-large u-clearfix c-split-content--offer">
+            <div class="c-split-content--first">
+                @if(hasText) {
+                    <h2 class="u-beta u-sec-font">@promoText</h2>
+                }
+            </div>
+            <div class="c-split-content--last">
+                <a class="c-button c-button--primary" href="#">Get Started</a>         
+            </div>
         </div>
-
-        <div class="c-split-content--last">
-            <a class="c-button c-button--primary" href="#">Get Started</a>         
-        </div>
-
-    </div>
-</section>
+    </section>
+}

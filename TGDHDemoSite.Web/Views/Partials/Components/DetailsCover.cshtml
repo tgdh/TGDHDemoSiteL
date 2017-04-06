@@ -1,28 +1,34 @@
 @inherits UmbracoViewPage<DetailCoverViewModel>
 
-    @{
-        var image = Umbraco.TypedMedia(Model.ImageId);
-        
-        if (image == null) {
-            return;
-        }
+@{
+    var image = Umbraco.TypedMedia(Model.ImageId);
+    
+    if (image == null) {
+        return;
     }
 
-<section class="c-hero--middle u-clearfix">
-    <div class="o-wrap o-wrap--x-large">
-        <div class="c-hero__content o-wrap--small">
-			
-            @if(!String.IsNullOrWhiteSpace(Model.detailsHeadline)) {
-                <h1 class="u-tera c-hero__title u-underline--white">@Model.detailsHeadline</h1>
-            }
-            
-            @if(!String.IsNullOrWhiteSpace(Model.detailsContent.ToString())) {
-                <div class="c-hero__text">
-                    @Model.detailsContent
-                </div>
-            }
-            
-            <a href="#" class="c-button c-button--secondary">Lorem ipsum</a>
+    var hasHeadline = !String.IsNullOrWhiteSpace("detailsHeadline");
+    var hasContent = !String.IsNullOrWhiteSpace(Model.detailsContent.ToString());
+    var hasDetailsContent = hasHeadline || hasContent ? true : false;
+}
+
+@if(hasDetailsContent) {
+    <section class="c-hero--middle u-clearfix">
+        <div class="o-wrap o-wrap--x-large">
+            <div class="c-hero__content o-wrap--small">
+                
+                @if(hasHeadline) {
+                    <h1 class="u-tera c-hero__title u-underline--white">@Model.detailsHeadline</h1>
+                }
+                
+                @if(hasContent) {
+                    <div class="c-hero__text">
+                        @Model.detailsContent
+                    </div>
+                }
+                
+                <a href="#" class="c-button c-button--secondary">Lorem ipsum</a>
+            </div>
         </div>
-    </div>
-</section> 
+    </section> 
+}
