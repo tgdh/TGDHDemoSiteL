@@ -35,7 +35,9 @@
 			}
 
 			<article class="c-card o-grid__item"> 
-				<img class="c-card__item__image" src="@imageUrl" alt="@altNullChecked" />                
+				<div class="c-card__image-wrap">
+					<img class="c-card__item__image" src="@imageUrl" alt="@altNullChecked" />                
+				</div>
 				<div class="c-card__item__title">
 					@if(!string.IsNullOrWhiteSpace(Name)){
 						<h2 class="u-gamma">@Name</h2>

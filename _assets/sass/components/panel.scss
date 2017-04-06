@@ -17,6 +17,18 @@
 .c-panel__featured {
     position: relative;
     background-color: $grey;
+
+    &:hover {
+
+        .c-panel__description {
+            color: $pri;
+        }
+
+        .c-button {
+            background-color: $pri;
+            color: $sec;
+        }
+    }
      
      @include respond-max($mq-medium) {
         background-color: rgba($pri, .3);
@@ -30,7 +42,7 @@
             width: 100%;
             color: $sec;
 
-            h1 {
+            .c-panel__headline {
                 color: $sec;
             }
 
@@ -79,13 +91,36 @@
     }
 }
 
-.c-panel__non-featured {
+.c-title__basic {
     position: relative;
     background-color: $grey;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding: 10rem 4rem;
+    border-left: 8px solid $white;
+    transition: border ease-in-out .5s;
     @include column(1/2, $cycle: 2);
+
+    &:hover {
+        border-left: 8px solid $pri;
+
+        .c-panel__description {
+            color: $pri;
+        }
+
+        .c-button {
+            background-color: $pri;
+            color: $sec;
+        }
+    }
+
+    .c-panel__image {
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+    }
 
 
     @include respond-max($mq-medium) {
@@ -93,15 +128,15 @@
     }
 
     &:nth-child(1) {
-        h1 {
+        .c-panel__headline {
             color: $sec;
         }
 
-        a {
+        .c-button {
             opacity :0;
         }
 
-        p {
+        .c-panel__description {
             color: $sec;
         }
 
@@ -111,15 +146,15 @@
     }
 
     &:nth-child(4) {
-        h1 {
+        .c-panel__headline {
             color: $sec;
         }
 
-        a {
+        .c-button {
             opacity :0;
         }
 
-        p {
+        .c-panel__description {
             color: $sec;
         }
 

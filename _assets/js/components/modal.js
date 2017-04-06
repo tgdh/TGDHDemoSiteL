@@ -1,10 +1,10 @@
-var Modal = (function($){
-    'use strict';
+// var Modal = (function($){
+//     'use strict';
 
     
 
-    return {
-		init: _init
-	};
+//     return {
+// 		init: _init
+// 	};
 
-})(jQuery);
+// })(jQuery);

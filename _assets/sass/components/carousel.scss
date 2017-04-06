@@ -34,11 +34,31 @@
 }
 
 .c-carousel--prev,
-.c-carousel--next {	
+.c-carousel--next {
+	font-size: 3.2rem;
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	line-height: 1;
+	transform: translateY( -50% );
+	width: 50%;
+	height: 90%;
 
 	&:before {
 		color: $pri;
 		transition: color $speed $ease;
+	}
+
+	i {
+		background-color: $white;
+		font-size: 3rem;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 3rem;
+		position: absolute;
+		top: 50%;
+		text-align: center;
+		margin-top: -.8rem;
 	}
 
 	&:hover,
@@ -61,24 +81,16 @@
 	left: 0;
 
 	i {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 5%;
-		z-index: 4;
-		color: $pri;
-		background-color: $sec;
-		width: 5rem;
-		height: 5rem;
-		border-radius: 5rem;
-		transition: background-color ease-in-out .3s;
+		left: 5rem;
+		opacity: 0;
+		transition: opacity ease-in-out .5s,
+					left ease-in-out .5s;
+	}
 
-		&:hover, &:focus {
-			background-color: darken($sec, 25%);
-		}
-
-		@include respond-max($mq-medium){
-			display: none;
+	&:hover {
+		i {
+			opacity: 1;
+			left: 3rem;
 		}
 	}
 }
@@ -87,9 +99,20 @@
 	right: 0;
 
 	i {
-		display: none;
+		right: 5rem;
+		opacity: 0;
+		transition: opacity ease-in-out .5s,
+					right ease-in-out .5s;
+	}
+
+	&:hover {
+		i {
+			opacity: 1;
+			right: 3rem;
+		}
 	}
 }
+
 
 .c-carousel--invert {
 
@@ -206,11 +229,11 @@
 	}
 
 	.c-carousel--prev {
-		left: -2.4rem;
+		//left: -2.4rem;
 	}
 
 	.c-carousel--next {
-		right: -2.4rem;
+		//right: -2.4rem;
 	}
 
 

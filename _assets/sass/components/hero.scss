@@ -5,16 +5,16 @@
 =========================================================== */
 
 .c-hero {
-    background-image: url('../img/pug.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
+    min-height: 90rem;
 }
 
 .c-hero__content {
     width: 100%;
-    padding: 30rem 0;
     color: $sec;
+    padding-top: 4rem;
 
     h1 {
         color: $sec;
@@ -22,7 +22,6 @@
 }
 
 .c-hero--middle {
-    background-image: url('../img/ET-pug.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -37,4 +36,9 @@
     .c-hero--carousel-img {
         width: 100%;
     }
+}
+
+.flexbox__hero {
+    display: flex;
+    align-items: center;
 }

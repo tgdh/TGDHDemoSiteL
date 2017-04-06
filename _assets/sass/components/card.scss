@@ -39,10 +39,21 @@
     margin: 5rem 0;
 }
 
+.c-card__image-wrap {
+    position: relative;
+    background-color: #f4f4f4;
+
+    &:before {
+        content: "";
+        display: block;
+        @include pad-top(413, 509);
+    }
+}
+
 .c-card__item__image {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .c-card__item__title {
@@ -85,3 +96,4 @@
         }
     }
 }
+

@@ -30,7 +30,7 @@
     &:before {
         content: "";
         display: block;
-        @include pad-top(190/284);
+        @include pad-top(190, 284);
     }
 }
 
