@@ -2803,55 +2803,64 @@ img.mfp-img {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--facebook:hover, .c-contact__social .c-social__link--facebook:focus {
-    color: #3b5998; }
+    color: #FFFFFF;
+    background-color: #3b5998; }
 
 .c-contact__social .c-social__link--twitter {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--twitter:hover, .c-contact__social .c-social__link--twitter:focus {
-    color: #55acee; }
+    color: #FFFFFF;
+    background-color: #55acee; }
 
 .c-contact__social .c-social__link--google {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--google:hover, .c-contact__social .c-social__link--google:focus {
-    color: #dc4e41; }
+    color: #FFFFFF;
+    background-color: #dc4e41; }
 
 .c-contact__social .c-social__link--instagram {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--instagram:hover, .c-contact__social .c-social__link--instagram:focus {
-    color: #3f729b; }
+    color: white;
+    background-color: #3f729b; }
 
 .c-contact__social .c-social__link--linkedin {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--linkedin:hover, .c-contact__social .c-social__link--linkedin:focus {
-    color: #0077b5; }
+    color: #FFFFFF;
+    background-color: #0077b5; }
 
 .c-contact__social .c-social__link--pinterest {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--pinterest:hover, .c-contact__social .c-social__link--pinterest:focus {
-    color: #bd081c; }
+    color: #FFFFFF;
+    background-color: #bd081c; }
 
 .c-contact__social .c-social__link--youtube {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--youtube:hover, .c-contact__social .c-social__link--youtube:focus {
-    color: #cd201f; }
+    color: #FFFFFF;
+    background-color: #cd201f; }
 
 .c-contact__social .c-social__link--vimeo {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--vimeo:hover, .c-contact__social .c-social__link--vimeo:focus {
-    color: #1ab7ea; }
+    color: #FFFFFF;
+    background-color: #1ab7ea; }
 
 .c-contact__social .c-social__link--flcikr {
   background-color: transparent;
   color: #000000; }
   .c-contact__social .c-social__link--flcikr:hover, .c-contact__social .c-social__link--flcikr:focus {
-    color: #0063dc; }
+    color: #FFFFFF;
+    background-color: #0063dc; }
 
 /* ===========================================================
 

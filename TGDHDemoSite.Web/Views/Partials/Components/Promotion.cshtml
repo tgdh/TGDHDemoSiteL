@@ -1,16 +1,25 @@
 @inherits UmbracoViewPage<IPublishedContent>
 
 @{
-    var promoText = Model.GetPropertyValue<string>("promotionText");
-    var hasText = !String.IsNullOrWhiteSpace(promoText);
-    var hasPromocontent = hasText ? true : false;
+    var homepage = Model.Site();
+    var settings = homepage.Descendants("globalSettings").FirstOrDefault();
+
+    var promoText = settings.GetPropertyValue<string>("promotionText");
+
+    var hasPromotionText = !String.IsNullOrWhiteSpace(promoText);
+    var hasPromoContent = hasPromotionText ? true : false;
+
+    if (settings == null)
+    {
+        promoText = settings.GetPropertyValue<string>("websiteName");
+    }
 }
 
-@if(hasPromocontent) {
+@if(hasPromoContent) {
     <section class="o-section u-clearfix u-background-color flexbox">
         <div class="o-wrap o-wrap--x-large u-clearfix c-split-content--offer">
             <div class="c-split-content--first">
-                @if(hasText) {
+                @if(hasPromotionText) {
                     <h2 class="u-beta u-sec-font">@promoText</h2>
                 }
             </div>
