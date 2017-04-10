@@ -10,10 +10,6 @@
 	margin-top: 3rem;	
 	width: 80%;
 
-	@include respond-max ($mq-large) {
-		display: none;
-	}
-
 	.c-nav__list {
 		list-style: none;
 	}
@@ -47,18 +43,47 @@
 
 }
 
-@include respond-max( $mq-small ) {
+@include respond-max( $mq-medium ) {
 
 	.enhance {
 
 		.c-nav--main {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin-top: 0;
+			background-color: $sec;
+			width: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity ease-in-out .5s,
+						margin-top ease-in-out .3s;
+			margin-top: -1rem;
+
+			@include respond-max($mq-medium){
+				top: 7.5rem;
+			}
+
+			@include respond-max($mq-small){
+				top: 6rem;
+			}
 
 			.c-nav__link {
 				padding: 1rem 1.5rem;
 			}
-
+			
+			.is-active {
+				color: $sec;
+				background-color: $pri;
+				font-weight: 400;
+			}
 		}
 
+		.js-nav-open {
+			opacity: 1;
+			visibility: visible;
+			margin-top: 0;
+		}
 	}
 
 }
@@ -95,7 +120,7 @@
 
 }
 
-@include respond-max( $mq-large ) {
+@include respond-max( $mq-medium ) {
 	
 	.enhance {
 
@@ -135,7 +160,7 @@
 
 }
 
-@include respond-min( $mq-large ) {
+@include respond-min( $mq-medium ) {
 
 	.c-nav--main {
 		position: relative;

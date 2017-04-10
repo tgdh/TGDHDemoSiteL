@@ -1,0 +1,27 @@
+.c-search {
+    background-color: rgba($black, .5);
+    position: fixed;
+    z-index: 15;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    visibility: hidden;
+	transition: opacity $speed $ease;
+}
+
+.c-search__container {
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100rem;
+    padding: 5rem;
+    box-shadow: 1px 1px 15px rgba($black, .8);
+}
+
+.js-search-open {
+    opacity: 1;
+    visibility: visible;
+    }

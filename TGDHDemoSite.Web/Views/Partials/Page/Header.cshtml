@@ -1,4 +1,4 @@
-@inherits UmbracoViewPage<IPublishedContent>
+﻿@inherits UmbracoViewPage<IPublishedContent>
 @{
     var homePage = Model.AncestorsOrSelf().Last();
     var settings = homePage.Descendants("globalSettings").FirstOrDefault();
@@ -24,11 +24,25 @@
 
         <a href="#">
             <div class="c-header__hamburger">
-                menu
-                <i class="ico-ic-menu-24px"></i>
+                <div class="c-header__text">
+                    menu
+                </div>
+                <div class="c-header__ham-container">
+                    <span class="ham-span active"></span>
+                    <span class="ham-span active"></span>
+                </div>
             </div>
         </a>
 
         @Html.Partial("~/Views/Partials/Page/MainNavigation.cshtml")
     </div>
 </header>
+
+<section class="c-search">
+    <div class="c-search__container">
+		<form action="/home/search/">
+			<label for="search">Search</label>
+			<input type="text" placeholder="Press Esc to close search" id="search" />
+		</form>
+    </div>
+</section>

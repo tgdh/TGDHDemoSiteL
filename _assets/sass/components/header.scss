@@ -10,13 +10,29 @@
 	position: relative;
 	z-index: 10;
 	transition: background $speed $ease,
-				border-color $speed $ease;	
+				border-color $speed $ease;
+	
+	@include respond-max($mq-medium){
+		height: 7.5rem;
+	}
+
+	@include respond-max($mq-small){
+		height: 6rem;
+	}
 }
 
 .c-header__container {
 	background-color: $sec;
-	min-height: 6rem;
 	position: relative;
+	transition: height $speed $ease;
+
+	@include respond-max($mq-medium){
+		height: 7.5rem;
+	}
+
+	@include respond-max($mq-small){
+		height: 6rem;
+	}
 }
 
 .c-header__logo-link {
@@ -25,16 +41,17 @@
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 	min-width: 5.5rem;
-	width: 10%;
+	width: 9%;
+	transition: width $speed $ease;
 	padding-left: 4rem;
 
-	@include respond-max ($mq-large) {
+	@include respond-max ($mq-medium) {
 		float: none;
 		margin: 0 auto;
 	}
 }
 
-@include respond-max( $mq-large ) {
+@include respond-max( $mq-medium ) {
 
 	.enhance {
 
@@ -79,7 +96,7 @@
 
 }
 
-@include respond-min( $mq-large ) {
+@include respond-min( $mq-medium ) {
 
 	.c-header__logo-image {
 		width: 15rem;
@@ -94,4 +111,42 @@
 	}
 }
 
+
+//sticking the header to margin-top
+.js-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+	}
+
+@include respond-min($mq-small){
+	.js-fixed {
+		height: 5rem;
+		box-shadow: 5px 5px 15px rgba($black, 0.3);
+
+		.c-header__container{
+			height: 5rem;
+		}
+
+		.c-header__logo-link {
+			max-width: 8rem;
+			margin-top: 0.2rem;
+		}
+
+		.c-nav--main {
+			margin-top: 0.5rem;
+		}
+
+		.c-header__search {
+			height: 5rem;
+			padding-top: 1rem;
+
+			i {
+				padding: 0
+			}
+		}
+	}
+}
 

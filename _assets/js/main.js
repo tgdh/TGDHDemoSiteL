@@ -53,6 +53,10 @@
 		$('.js-tabs').tabs();
 
 		$window.Carousel.init($('.js-carousel'));
+		$window.Scroll.init();
+		$window.NavOpen.init();
+		$window.HeaderStick.init();
+		$window.Search.init();
 
 		//MQ.init(breakpoints);
 	}
