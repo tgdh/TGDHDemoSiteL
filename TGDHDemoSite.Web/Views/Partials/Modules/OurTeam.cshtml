@@ -1,0 +1,67 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var staffMembers = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("staffItem");
+
+	if(staffMembers == null) {
+		return;
+	}	
+
+}
+
+<section class="o-section u-clearfix o-wrap o-wrap--center o-wrap--x-large u-section-padding">
+	<div class="c-column-heading--two u-clearfix">
+		<h2 class="c-column-heading u-alpha">
+			Our team
+		</h2>
+		<span class="c-column-heading--tel u-gamma">
+			<i class="ico-phone">
+			</i>
+			020 256 314 
+		</span>                
+	</div>
+
+	<div class="o-grid--three u-clearfix">
+		@foreach(var item in staffMembers){
+			var Image = Umbraco.TypedMedia(item.GetPropertyValue("image"));
+			var imageUrl = Url.GetCropUrl(Image, cropAlias: "staffMember", htmlEncode: false).ToString();
+			var Name = item.GetPropertyValue<string>("name");
+			var JobTitle = item.GetPropertyValue<string>("jobTitle");
+			var EmailAddress = item.GetPropertyValue<string>("emailAddress");
+			var Ext = item.GetPropertyValue<string>("telephoneExt");
+			var altNullChecked = !string.IsNullOrWhiteSpace(Name) ? Name : "staff image";
+
+			var hasName = !String.IsNullOrWhiteSpace(Name);
+			var hasJobTitle = !String.IsNullOrWhiteSpace(JobTitle);
+			var hasExt = !String.IsNullOrWhiteSpace(Ext);
+			var hasEmailAddress = !String.IsNullOrWhiteSpace(EmailAddress);
+			
+			if(Image == null){
+				return;
+			}
+
+			<article class="c-card o-grid__item"> 
+				<div class="c-card__image-wrap">
+					<img class="c-card__item__image" src="@imageUrl" alt="@altNullChecked" />                
+				</div>
+				<div class="c-card__item__title">
+					@if(hasName){
+						<h2 class="u-gamma">@Name</h2>
+					}
+
+					@if(hasJobTitle){
+						<span>@JobTitle</span>
+					}
+				</div>
+				<div class="c-card__item__detail">
+					@if(hasExt){
+						<p>@Ext</p>
+					}
+
+					@if(hasEmailAddress){
+						<a class="c-card__item__detail--link" href="mailto:@EmailAddress">Email</a>
+					}
+				</div>       
+			</article>
+		}
+	</div>
+</section>

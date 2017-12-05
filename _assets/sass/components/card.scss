@@ -1,0 +1,99 @@
+/* ===========================================================
+
+	# Card
+
+=========================================================== */
+
+.c-column-heading--two {
+
+    .c-column-heading{
+        float: left;
+    }
+
+    .c-column-heading--tel {
+        float: right;
+        font-weight: 900;
+
+        i {
+            font-size: 5rem;
+            float: left;
+            padding-right: 1.5rem;
+            margin-top: -.5rem;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 3.5rem;
+            height: .3rem;
+            float: right;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            background-color: $pri;
+        }
+    }
+}
+
+//CARD CONTENTS
+.c-card {
+    margin: 5rem 0;
+}
+
+.c-card__image-wrap {
+    position: relative;
+    background-color: #f4f4f4;
+
+    &:before {
+        content: "";
+        display: block;
+        @include pad-top(413, 509);
+    }
+}
+
+.c-card__item__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.c-card__item__title {
+    float: left;
+    padding-top: 2rem;
+
+    @include respond-max($mq-large){
+        width: 100%;
+    }
+
+    span {
+        color: rgba($pri, .7);
+    }
+}
+
+.c-card__item__detail {
+    float: right;
+    color: rgba($pri, .5);
+    text-align: right;
+    padding-top: 2.5rem;
+
+    @include respond-max($mq-large){
+        float: left;
+        text-align: left;
+        padding-top: .5rem;
+    }
+
+    .c-card__item__detail--link {
+        color: currentColor;
+        text-decoration: underline;
+        padding-top: 1.3rem;
+        display: inline-block;
+
+        &:hover, &:focus {
+            color: $pri;
+        }
+
+        @include respond-max($mq-large){
+            padding-top: .5rem;
+        }
+    }
+}
+

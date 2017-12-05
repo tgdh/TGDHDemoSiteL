@@ -1,0 +1,122 @@
+/* ===========================================================
+
+	# Hamburger
+
+=========================================================== */
+
+.c-header__search {
+    background-color: $pri;
+    color: $sec;
+    float: right;
+    height: 111px;
+    width: 10%;
+    padding-top: 3.5rem;
+    text-align: center;
+
+    @include respond-max ($mq-medium) {
+		display: none;
+	}
+
+    i {
+        font-size: 3rem;
+        padding-right: 1rem;
+    }
+} 
+
+.c-header__text {
+    float: left;
+
+    @include respond-max($mq-small){
+        float: none;
+        margin-top: -.8rem;
+    }
+}
+
+.c-header__hamburger {
+    background-color: $pri;
+    color: $sec;
+    text-align: center;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 3.5% 2rem;
+
+    i {
+        font-size: 5rem;
+        float: right;
+        padding: 0 1rem;
+        margin-top: -1.4rem;
+    }
+
+    @include respond-min ($mq-medium) {
+		display: none;
+	}
+}
+
+
+
+
+
+// Variables
+$line-color: #FFF;
+$line-width: 1.5rem;
+$line-height: .2rem;
+
+// Mixin For Span Element
+@mixin span($t) {
+  transition: all $t + s cubic-bezier(.5, 10, .6, .1);
+  display: block;
+  cursor: pointer;
+}
+
+// Mixin For Centering Elements
+@mixin center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+// Main Styles
+.c-header__ham-container {
+  transform: scale(3);
+  float: right;
+  margin: 0 2rem 0 4rem;
+
+  @include respond-max($mq-small){
+      float: none;
+      transform: scale(1.5);
+      margin: .7rem auto;
+  }
+}
+
+span {
+  @include span(0.4);
+}
+
+.active {
+  background: $line-color;
+  width: $line-width;
+  height: $line-height;
+  margin-top: 4px;
+  @include center;
+}
+
+.cross {
+  background: $line-color;
+  width: $line-width;
+  height: $line-height;
+  margin-top: .4rem;
+  display: block;
+  @include center;
+}
+
+.cross:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+
+.cross:nth-of-type(2) {
+  transform: rotate(-45deg);
+  margin-top: -.2rem;
+}

@@ -1,0 +1,68 @@
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+
+@{
+    var PricingTabs = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("pricingTab");
+
+    if (PricingTabs == null)
+    {
+        return;
+    } 
+}
+
+
+<section class="o-section o-wrap o-wrap--x-large">
+    <div class="o-wrap--medium o-wrap--center u-center-content">
+        <h1 class="u-space-bottom">Lorem ipsum dolor sit amet</h1>
+
+        <div class="o-section c-pricing u-clearfix"> 
+
+            @foreach(var price in PricingTabs)
+            {
+                var Headline = price.GetPropertyValue<string>("headline");
+                var Description = price.GetPropertyValue<IHtmlString>("description");
+                var Cta = price.GetPropertyValue<string>("button");
+                var CaveatText = price.GetPropertyValue<string>("caveatText");
+
+                var hasHeadline = !string.IsNullOrWhiteSpace(Headline);
+                var hasCta = !string.IsNullOrWhiteSpace(Cta);
+                var hasCaveat = !string.IsNullOrWhiteSpace(CaveatText);
+                var hasDescription = !String.IsNullOrWhiteSpace(Description.ToString());
+                var hasPricingContent = hasHeadline || hasCta || hasCaveat || hasDescription ? true : false; 
+
+                var Image = Umbraco.TypedMedia(price.GetPropertyValue("icon"));
+                var imageUrl = Url.GetCropUrl(Image, cropAlias: "1:1", htmlEncode: false).ToString();
+
+
+                <article class="c-pricing__item">
+                    <div class="c-pricing__item-heading">
+                        <img class="c-pricing__item-image" src="@imageUrl" alt="icon image" />
+                    </div>                      
+                    <div class="c-pricing__item-content">
+                        @if(hasHeadline){
+                            <h2>
+                                @Headline
+                            </h2>
+                        }
+
+                        @if(hasDescription){
+                            <div>
+                                @Description                 
+                            </div>
+                        }
+
+                        @if(hasCta){
+                            <a href="#" class="c-button c-button--primary">Lorem ipsum</a>
+                        }
+
+                        @if(hasCaveat){
+                            <p class="u-sec-font">
+                                @CaveatText
+                            </p>
+                        }
+                    </div>                              
+                </article>  
+            }       
+        </div>
+    </div>
+</section> 

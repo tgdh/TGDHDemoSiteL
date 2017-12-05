@@ -1,0 +1,82 @@
+/* ===========================================================
+
+	# Buttons
+
+=========================================================== */
+.c-full__width__button {
+	display: block;
+	margin: 6rem 0 0 0;
+}
+
+.c-button {
+	//border-radius: $border-radius;
+	display: block;
+	line-height: 1;
+	text-align: center;
+	padding: 2.5rem 6rem;
+	transition: background $speed $ease,
+				box-shadow $speed $ease,
+				color $speed $ease;
+
+	&:hover,
+	&:focus {
+		color: $white;
+	}
+
+	&:focus {
+		box-shadow: 0 .3rem 0 0 rgba( $black, .1 );
+	}
+
+	&.is-disabled {
+		background: $border-colour;
+		color: $white;
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			background: $border-colour;
+		}
+	}
+}
+
+.c-button--primary {
+	background: transparent;
+	color: $pri;
+	border: 1px solid $pri;
+	display: inline-block;
+	margin-top: 3rem;
+
+	&:hover,
+	&:focus {
+		background: $black;
+	}
+}
+
+.c-button--secondary {
+	background: transparent;
+	border: 1px solid $sec;
+	color: $sec;
+	margin-top: 3rem;
+
+	&:hover,
+	&:focus {
+		background: $sec;
+		color: $pri;
+	}
+}
+
+@include respond-max( $mq-small ) {
+
+	.c-button + .c-button {
+		margin-top: $line-height;
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.c-button {
+		display: inline-block;
+	}
+
+}

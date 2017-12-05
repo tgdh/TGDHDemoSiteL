@@ -1,0 +1,47 @@
+/* ===========================================================
+
+	# Block
+
+=========================================================== */
+
+.c-block {
+    @include column(1/2, $cycle: 2);
+    background-color: $grey;
+    min-height: 42.7rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    @include respond-max($mq-medium) {
+        @include column(1/1);
+    }
+}
+
+.c-block__image {
+    position: absolute;
+    top: 0;
+    left: 0;    
+}
+
+.c-block__image-wrap {
+    position: relative;
+    background-color: $grey;
+
+    &:before {
+        content: "";
+        display: block;
+        @include pad-top(190, 284);
+    }
+}
+
+.c-block__image--headline {
+    color: $sec;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8rem 2.5rem;
+}
+
+.c-block__container {
+    padding: 8rem 2.5rem;
+}

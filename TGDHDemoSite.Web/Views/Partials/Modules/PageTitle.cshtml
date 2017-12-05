@@ -1,0 +1,14 @@
+@inherits UmbracoViewPage<PanelViewModel>
+@{
+	<!--var image = Umbraco.TypedMedia(Model.ImageId);
+    var imageUrl = Url.GetCropUrl(image, cropAlias: "16:9", width: 1800, htmlEncode: false).ToString();-->
+   
+}
+
+<!-- Content Text -->
+@{
+	var Panel = new PanelViewModel {	
+
+	};
+}
+@Html.Partial("~/Views/Partials/Components/Panel.cshtml", Panel) 

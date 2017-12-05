@@ -1,0 +1,48 @@
+﻿@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var homePage = Model.AncestorsOrSelf().Last();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+    var siteName = string.Empty;
+
+    if (settings != null)
+    {
+        siteName = settings.GetPropertyValue<string>("websiteName");
+    }
+}
+
+<header id="top" class="c-header u-clearfix">
+    <div class="c-header__container o-wrap--center o-wrap--x-large u-clearfix">
+        <a class="c-header__logo-link" href="@homePage.Url">
+            <img src="/assets/img/logo.png" alt="logo"/>
+        </a>
+
+        <a class="c-header__search-link" href="#">
+            <div class="c-header__search">
+                <i class="ico-ic-search-24px"></i>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="c-header__hamburger">
+                <div class="c-header__text">
+                    menu
+                </div>
+                <div class="c-header__ham-container">
+                    <span class="ham-span active"></span>
+                    <span class="ham-span active"></span>
+                </div>
+            </div>
+        </a>
+
+        @Html.Partial("~/Views/Partials/Page/MainNavigation.cshtml")
+    </div>
+</header>
+
+<section class="c-search">
+    <div class="c-search__container">
+		<form action="/home/search/">
+			<label for="search">Search</label>
+			<input type="text" placeholder="Press Esc to close search" id="search" />
+		</form>
+    </div>
+</section>

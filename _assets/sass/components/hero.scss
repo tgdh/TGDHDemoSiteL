@@ -1,0 +1,44 @@
+/* ===========================================================
+
+	# Hero
+
+=========================================================== */
+
+.c-hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    min-height: 90rem;
+}
+
+.c-hero__content {
+    width: 100%;
+    color: $sec;
+    padding-top: 4rem;
+
+    h1 {
+        color: $sec;
+    }
+}
+
+.c-hero--middle {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.c-hero--carousel {
+    .single-item {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .c-hero--carousel-img {
+        width: 100%;
+    }
+}
+
+.flexbox__hero {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,22 @@
+@inherits UmbracoViewPage<IPublishedContent>
+
+@{
+    var homePage = Model.Site();
+    var menuItems = homePage.Children.Where(x => x.IsVisible() && x.TemplateId > 0);
+}
+
+<nav class="c-header__c-nav c-nav--main">
+    <ul class="c-nav__list">
+
+        @foreach (var item in menuItems)
+        {
+            var active = item.IsAncestorOrSelf(Model) ? "is-active" : null;
+
+
+        <li class="c-nav__item">
+            <a class="c-nav__link @active" href="@item.Url">@item.Name</a>
+        </li>
+
+   }
+    </ul>
+</nav>

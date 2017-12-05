@@ -1,0 +1,33 @@
+@inherits UmbracoViewPage<SplitContentViewModel>
+
+@{
+	var hasHeadline = !String.IsNullOrWhiteSpace(Model.aboutHeadline);
+	var hasContentLeft = !String.IsNullOrWhiteSpace(Model.aboutContentLeft.ToString());
+	var hasContentRight = !String.IsNullOrWhiteSpace(Model.aboutContentRight.ToString());
+	var hasContent = hasHeadline || hasContentLeft || hasContentRight ? true : false;
+}
+
+@if( hasContent ) {
+	<section class="o-section c-split-content u-clearfix u-background-color">                
+		<div class="o-wrap o-wrap--x-large">
+			@if(hasHeadline) {
+				<h1 class="c-split-content__title u-underline u-alpha">
+						@Model.aboutHeadline            
+				</h1>      
+			}
+			<div class="u-clearfix">
+				<div class="c-split-content--first">
+					@if(hasContentLeft) {
+						@Model.aboutContentLeft
+					}
+				</div>
+
+				<div class="c-split-content--last">        
+					@if(hasContentRight) {
+						@Model.aboutContentRight
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+}

@@ -1,0 +1,30 @@
+@inherits UmbracoViewPage<IPublishedContent>
+
+<section class="c-contact c-contact__form">  
+    <h3 class="u-alpha u-underline">Leave us a message</h3>
+    <form class="" action="" method="">
+
+        <fieldset class="c-contact__fieldset">
+            <div class="c-contact__half u-clearfix">
+                <label class="c-contact__label" for="name">Name*</label>
+                <input class="c-contact__input" type="text" id="name">
+            </div>
+            <div class="c-contact__half u-clearfix">
+                <label class="c-contact__label" for="company">Company</label>
+                <input class="c-contact__input" type="text" id="company">
+            </div>
+
+            <label class="c-contact__label c-contact__label" for="telephone">Telephone*</label>
+            <input class="c-contact__input" type="text" id="telephone">
+
+            <label class="c-contact__label c-contact__label" for="subject">Subject</label>
+            <input class="c-contact__input" type="text" id="subject">
+
+            <label class="c-contact__label c-contact__label" for="message">Message*</label>
+            <textarea class="c-contact__input" type="text" id="message"> </textarea>
+            <span class="c-contact__caveat u-sec-font">* Required field</span>
+        </fieldset>
+
+        <a class="c-button c-button--primary" href="#">Send</a>
+    </form>
+</section>

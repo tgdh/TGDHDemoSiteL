@@ -1,0 +1,53 @@
+﻿@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+    var childPage = Model.Children.Where("Visible");
+    var count = 0;
+    var secondCount = 0;
+}
+<section class="flexbox c-panel__wrap">    
+                
+    @foreach(var child in childPage){
+        count++;
+        if(count <= 2)
+        {
+            <div class="c-panel__featured c-panel">
+                <div class="o-wrap o-wrap--x-large">
+                    @GatewayItem(child)
+                </div>             
+            </div>   
+        }
+    }
+
+    <div class="o-section o-wrap o-wrap--large u-clearfix c-panel__flexbox">
+        @foreach(var child in childPage){
+            secondCount++;
+            if(secondCount > 2)
+            {
+                <div class="c-title__basic c-title">
+                    @GatewayItem(child)
+                </div>
+            }
+        }
+    </div>
+</section>
+
+
+@helper GatewayItem(IPublishedContent child){
+    var PageName = child.Name;
+    var PageImage = child.GetPropertyValue("featuredImage");
+    var PageDescription = child.GetPropertyValue<string>("pageDescription");
+    var PageUrl = child.Url;
+   
+    <div class="c-panel__col c-panel__col__content">
+        <a class="c-panel__link" href="@PageUrl">
+            <h1 class="u-tera u-underline c-panel__headline">@PageName</h1>
+            <div class="c-panel__description">@PageDescription</div>            
+            <a href="@PageUrl" class="c-button c-button--primary">@PageName</a>
+        </a>
+    </div>
+    
+    <a class="c-panel__link" href="@PageUrl">
+        <div class="c-panel__image" style="background-image: url('@Umbraco.Media(PageImage).Url')"></div>
+    </a>
+}
